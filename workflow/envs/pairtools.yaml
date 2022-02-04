@@ -1,0 +1,9 @@
+name: pairtools
+channels:
+  - conda-forge
+  - bioconda
+  - default
+dependencies:
+  - pairtools=0.3.0
+  - samtools=1.14
+  - pbgzip=2016.08.04

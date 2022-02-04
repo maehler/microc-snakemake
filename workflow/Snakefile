@@ -1,0 +1,10 @@
+configfile: 'config/config.yaml'
+
+wildcard_constraints:
+    min_mapq='\d+'
+
+include: 'rules/common.smk'
+include: 'rules/preprocessing.smk'
+include: 'rules/cluster_config.smk'
+include: 'rules/alignment.smk'
+include: 'rules/pairtools.smk'

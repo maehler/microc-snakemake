@@ -1,0 +1,19 @@
+reads:
+    301: resources/raw/P20452_301_S1_L001_R*_001.fastq.gz
+    401: resources/raw/P20452_401_S2_L001_R*_001.fastq.gz
+
+genome: resources/assembly/hifi-assembly-25cells-m250-coverage_purged.fa.gz
+
+cluster:
+    cookiecutter:
+        url: https://github.com/Snakemake-Profiles/slurm
+        profile_name: rackham
+        cluster_config: config/slurm.yaml
+        advanced_argument_conversion: false
+
+    snakemake:
+        use-conda: true
+        use-envmodules: true
+        restart-times: 0
+        jobs: 3000
+        latency-wait: 120

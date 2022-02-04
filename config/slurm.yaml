@@ -1,0 +1,25 @@
+__default__:
+    account: snic2021-5-312
+    time: 60
+    partition: core
+    cpus-per-task: 1
+    ntasks: 1
+    job-name: "{rule}.{wildcards}"
+    output: "log/{rule}.{wildcards}.%j.out"
+    error: "log/{rule}.{wildcards}.%j.err"
+
+bwa_index:
+    time: 1440
+    cpus-per-task: 10
+
+bwa:
+    time: 1440
+    cpus-per-task: 10
+
+pairtools_parse:
+    time: 1440
+    cpus-per-task: 10
+
+pairtools_dedup:
+    time: 1440
+    cpus-per-task: 10
