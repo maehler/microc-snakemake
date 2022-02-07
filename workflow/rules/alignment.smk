@@ -10,7 +10,8 @@ rule bwa_index:
 
 rule bwa:
     input:
-        reads='results/input/reads.fq.gz',
+        first_reads='results/input/reads_1.fq.gz',
+        second_reads='results/input/reads_2.fq.gz',
         bwa_idx='results/input/genome.bwt'
     output:
         'results/alignments/alignments.bam'
@@ -24,6 +25,7 @@ rule bwa:
     bwa mem -5SP -T0 \\
         -t{threads} \\
         ${{PREFIX}} \\
-        {input.reads} | \\
+        {input.first_reads} \\
+        {input.second_reads} | \\
         samtools view -b > {output}
     """

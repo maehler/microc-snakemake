@@ -13,8 +13,15 @@ rule genome_file:
 
 rule cat_reads:
     input: get_reads(),
-    output: 'results/input/reads.fq.gz'
-    shell: 'cat {input} > {output}'
+    output:
+        first='results/input/reads_1.fq.gz',
+        second='results/input/reads_2.fq.gz'
+    shell: """
+    FIRST=$(find {input} | grep R1)
+    SECOND=$(find {input} | grep R2)
+    cat ${{FIRST}} > {output.first}
+    cat ${{SECOND}} > {output.second}
+    """
 
 rule compress_fasta:
     input: config['genome']
