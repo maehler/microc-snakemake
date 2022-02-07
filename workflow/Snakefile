@@ -8,3 +8,6 @@ include: 'rules/preprocessing.smk'
 include: 'rules/cluster_config.smk'
 include: 'rules/alignment.smk'
 include: 'rules/pairtools.smk'
+
+rule all:
+    output: 'results/alignments/pairtools_q40_stats.png'
