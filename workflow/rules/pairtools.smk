@@ -41,3 +41,10 @@ rule pairtools_dedup:
         --output {output.dedup} \\
         {input}
     """
+
+rule plot_pairtools_stats:
+    input: 'results/alignments/alignments_q{min_mapq}_stats.txt'
+    output: 'results/alignments/pairtools_q{min_mapq}_stats.png'
+    conda: '../envs/tidyverse.yaml'
+    envmodules: 'R/4.1.1', 'R_packages/4.1.1'
+    script: '../scripts/plot_pairtools_stats.R'

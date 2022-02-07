@@ -23,3 +23,6 @@ pairtools_parse:
 pairtools_dedup:
     time: 1440
     cpus-per-task: 10
+
+plot_pairtools_stats:
+    time: 10

@@ -1,0 +1,7 @@
+name: tidyverse
+channels:
+    - bioconda
+    - conda-forge
+    - defaults
+dependencies:
+    - r-tidyverse>=1.3
