@@ -13,7 +13,7 @@ rule bwa:
         reads='results/input/reads.fq.gz',
         bwa_idx='results/input/genome.bwt'
     output:
-        'results/alignments.bam'
+        'results/alignments/alignments.bam'
     log: 'log/bwa.log'
     envmodules: 'bioinfo-tools', 'bwa/0.7.17', 'samtools/1.14'
     threads: 10

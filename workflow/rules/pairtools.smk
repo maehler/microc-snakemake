@@ -1,8 +1,8 @@
 rule pairtools_parse:
     input:
-        bam='results/alignments.bam',
+        bam='results/alignments/alignments.bam',
         genome='results/input/genome.genome'
-    output: 'results/alignments_q{min_mapq}_sorted.pairsam.gz'
+    output: 'results/alignments/alignments_q{min_mapq}_sorted.pairsam.gz'
     conda: '../envs/pairtools.yaml'
     params:
         min_mapq=lambda w: w['min_mapq'],
@@ -26,7 +26,7 @@ rule pairtools_parse:
     """
 
 rule pairtools_dedup:
-    input: 'results/alignments_q{min_mapq}_sorted.pairsam.gz'
+    input: 'results/alignments/alignments_q{min_mapq}_sorted.pairsam.gz'
     output:
         dedup='results/alignments/alignments_q{min_mapq}_deduped.pairsam.gz',
         stats='results/alignments/alignments_q{min_mapq}_stats.txt'
